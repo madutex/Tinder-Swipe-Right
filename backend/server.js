@@ -7,13 +7,15 @@ const cors = require('cors')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 
-const uri = "mongodb+srv://qasenator:alx@cluster0.0pxjqhb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+require('dotenv').config();
+//mongodb api key
+const uri = process.env.MONGODB_URI;
 
 const app = express()
 app.use(cors())
 app.use(express.json({limit: '10mb'}))
 
-// Default
+// Default Home
 app.get('/', (req, res) => {
     res.json('Hello to my app')
 })
